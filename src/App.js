@@ -12,9 +12,13 @@ function App() {
     msg: '',
     type:''
     });
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!name){}
+    if(!name){
+      // setAlert({show:true,msg:'please enter value',type:'danger'});
+      showAlert(true,'danger','please enter value');
+    }
     else if(name && isEditing){}
     else{
       const newItem = {id: new Date().getTime().toString(),title: name};
@@ -22,9 +26,15 @@ function App() {
       setName('');
     }
   }
+
+  const showAlert = (show=false,type="",msg="") => {
+    console.log(show,type,msg);
+    setAlert({show,type,msg})
+  }
+
   return <section className="section-center">
     <form className="grocery-form" onSubmit={handleSubmit}>
-      {alert.show && <Alert />}
+      {alert.show && <Alert {...alert} removeAlert={showAlert} list={list}/>}
       <h3>grocery bud</h3>
       <div className="form-control">
         <input type="text" className="grocery" placeholder="e.g.eggs" value={name} onChange={(e)=>setName(e.target.value)}/>
