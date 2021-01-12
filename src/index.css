@@ -259,6 +259,7 @@ Grocery List
   color: var(--clr-grey-5);
 }
 .title {
+  flex-grow: 2;
   margin-bottom: 0;
   color: var(--clr-grey-1);
   letter-spacing: 2px;
@@ -266,6 +267,7 @@ Grocery List
 }
 .edit-btn,
 .delete-btn {
+  flex-grow: 1;
   background: transparent;
   border-color: transparent;
   cursor: pointer;
