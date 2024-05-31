@@ -5,19 +5,10 @@ const Form = ({addItem}) => {
     const [newItemName, setNewItemName] = useState('')
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(!newItemName)
-//             toast.error('🦄 Please provide a value!', {
-// position: "bottom-left",
-// autoClose: 5000,
-// hideProgressBar: false,
-// closeOnClick: true,
-// pauseOnHover: true,
-// draggable: true,
-// progress: undefined,
-// theme: "light",
-// transition: Bounce,
-// });
+        if(!newItemName){
+            toast.error('🦄 Please provide a value!');
             return
+        }            
         else{
             addItem(newItemName)
             setNewItemName('')    
